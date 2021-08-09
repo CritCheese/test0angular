@@ -1,7 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
-import { AuthService } from './auth.service';
+import { ConfigService } from 'src/app/config.service';
+import { User } from 'src/app/member/user/user';
+import { Admin } from 'src/app/member/admin/admin';
+
+
+
 
 @Component({
   selector: 'app-login-form',
@@ -10,11 +15,14 @@ import { AuthService } from './auth.service';
 })
 
 export class LoginFormComponent implements OnInit {
-  admin = { name: 'admin', password: 'root' };
-  user = [{ name: 'ace', password: 'bruh' }, { name: 'king', password: 'bruh' }]
-  form;
 
-  constructor(private router: Router, private fb: FormBuilder, private auth: AuthService) {
+  form;
+  c = this.router.url
+
+  users: User[] = []
+  admins: Admin[] = []
+
+  constructor(private router: Router, private confServ: ConfigService) {
     this.form = new FormGroup({
       name: new FormControl('', [Validators.required]),
       password: new FormControl('', [Validators.required])
@@ -22,7 +30,15 @@ export class LoginFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    if (this.c == '/login0') {
+      this.getAdmins()
+
+    } else {
+      this.getUsers();
+
+    }
     let t = localStorage.getItem('log')
+
     if (t == '1') {
       let r = localStorage.getItem('role')
       if (r == 'admin') {
@@ -34,21 +50,27 @@ export class LoginFormComponent implements OnInit {
   }
 
   callingFunction() {
-    let c = this.router.url
-    if (c == '/login0') {
-      if (this.form.value.name == this.admin.name && this.form.value.password == this.admin.password) {
-        this.transSuccess(this.form.value.name, '/adminDashboard', 'admin')
-        alert('Hello')
-      } else {
+    if (this.c == '/login0') {
+      var s = false
+      for (let admin of this.admins) {
+        if (this.form.value.name === admin.name && this.form.value.password === admin.password) {
+          s = true
+          alert('Hello')
+          this.transSuccess(this.form.value.name, '/adminDashboard', 'admin')
+          break;
+        }
+      }
+      if (s == false) {
         alert('Login failed')
       }
+
     }
 
-    if (c == '/login1') {
+    if (this.c == '/login1') {
       var a = false
-      for (var x = 0; x < this.user.length; x++) {
-        if (this.form.value.name == this.user[x].name && this.form.value.password == this.user[x].password) {
-          alert('Hello')
+      for (let user of this.users) {
+        if (this.form.value.name === user.name && this.form.value.password === user.password) {
+          alert('Hello user')
           this.transSuccess(this.form.value.name, '/dashboard', 'user')
           a = true
           break;
@@ -65,7 +87,14 @@ export class LoginFormComponent implements OnInit {
     localStorage.setItem('role', role)
     localStorage.setItem('name', name)
     this.router.navigate([url0])
+  }
 
+  getUsers() {
+    this.confServ.getUser().subscribe(users => (this.users = users));
+  }
+
+  getAdmins() {
+    this.confServ.getAdmin().subscribe(admins => (this.admins = admins));
   }
 }
 

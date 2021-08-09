@@ -1,3 +1,88 @@
 <p>admin-dashboard works!</p>
 <p>Hello {{name}}</p>
-<a href="/login1" (click)="onLogout()">Logout</a>
+
+<a href="/login1" (click)="onLogout()"><button class="btn btn-primary">Logout</button></a>
+<div>
+  <button (click)="onAddUser()" class="btn btn-primary">Add User</button>
+</div>
+
+<form *ngIf="addUser == true">
+  <div class="mb-1">
+    <label for="addUserName" class="form-label">Name: </label> 
+    <input type="text"  class="form-control form-control-sm" id="addUserName" [(ngModel)]="uname" name="a1">
+  </div>
+  <div class="mb-1">
+    <label for="addUserPassword" class="form-label">Password: </label> 
+    <input type="password"  class="form-control form-control-sm" id="addUserPassword" [(ngModel)]="upassw" name="a2">
+  </div>
+  <div class="mb-1">
+    <label for="addUserClass" class="form-label">Class: </label> 
+    <input type="text" class="form-control form-control-sm" id="addUserClass" [(ngModel)]="uclass" name="a3">
+  </div>
+  <div class="mb-1">
+    <label for="addUseStatus" class="form-label">Status: </label> 
+    <select class="form-select form-select-sm" [(ngModel)]="ustatus" name="a4">
+      <option value="active">Active</option>
+      <option value="disabled">Disabled</option>
+    </select>
+  </div>
+  <div class="mb-1">
+    <button class="btn btn-secondary" (click)="offAddUser()">Cancel</button>
+    <button type="submit" class="btn btn-secondary" (click)="onAdd()">Submit</button>
+  </div>
+</form>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>password</th>
+      <th>class</th>
+      <th>status</th>
+      <th>Options</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let user of users'>
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.password}}</td>
+      <td>{{user.class}}</td>
+      <td>{{user.status}}</td>
+      <td><button class="btn btn-outline-primary btn-sm" (click)="edit(user)">Edit</button> 
+        <button class="btn btn-outline-primary btn-sm" *ngIf="user.status == 'disabled'">Activate</button>
+      <button class="btn btn-outline-primary btn-sm" *ngIf="user.status == 'active'">Disable</button>
+    <button class="btn btn-outline-primary btn-sm" (click)="deleteUser(user.id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<nav id="sidebar" *ngIf="editUser !== undefined">
+  <form  ngDefaultControl>
+    <div class="mb-1">
+      <label for="editUserName" class="form-label">Name: </label> 
+      <input type="text"  class="form-control form-control-sm" id="editUserName" [(ngModel)]="editUser.name"  name="edit1">
+    </div>
+    <div class="mb-1">
+      <label for="editUserPassword" class="form-label">Password: </label> 
+      <input type="text"  class="form-control form-control-sm" id="editUserPassword" name="edit2" [(ngModel)]="editUser.password">
+    </div>
+    <div class="mb-1">
+      <label for="editUserClass" class="form-label">Class: </label> 
+      <input type="text" class="form-control form-control-sm" id="editUserClass" name="edit3" [(ngModel)]="editUser.class">
+    </div>
+    <div class="mb-1">
+      <label for="editUseStatus" class="form-label">Status: </label> 
+      <select class="form-select form-select-sm" name="edit4" [(ngModel)]="editUser.status">
+        <option value="active">Active</option>
+        <option value="disabled">Disabled</option>
+      </select>
+    </div>
+    <p class="alert alert-info">*Note: Changes only occur after clicking the "Submit" button</p>
+    <div class="mb-1">
+      <button class="btn btn-secondary" (click)="editUser = undefined">Cancel</button>
+      <button type="submit" class="btn btn-secondary" (click)="updateUser(editUser)">Submit</button>
+    </div>
+  </form>
+</nav>

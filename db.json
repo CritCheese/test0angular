@@ -1,0 +1,89 @@
+{
+  "admin": [
+    {
+      "id": 0,
+      "name": "admin",
+      "password": "root"
+    }
+  ],
+  "users": [
+    {
+      "id": 0,
+      "name": "ace",
+      "password": "ace",
+      "class": "warrior",
+      "status": "active"
+    },
+    {
+      "id": 1,
+      "name": "king",
+      "password": "king",
+      "class": "white mage",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "queen",
+      "password": "queen",
+      "class": "machinist",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "jack",
+      "password": "jack",
+      "class": "dragoon",
+      "status": "disabled"
+    },
+    {
+      "id": 4,
+      "name": "nine",
+      "password": "nine",
+      "class": "dancer",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "name": "ten",
+      "password": "ten",
+      "class": "paladin",
+      "status": "disabled"
+    },
+    {
+      "id": 6,
+      "name": "eight",
+      "password": "eight",
+      "class": "dark knight",
+      "status": "disabled"
+    },
+    {
+      "id": 7,
+      "name": "seven",
+      "password": "seven",
+      "class": "scholar",
+      "status": "active"
+    }
+  ],
+  "products": [
+    {
+      "id": 0,
+      "name": "A Realm Reborn",
+      "quantity": 50
+    },
+    {
+      "id": 1,
+      "name": "Heavensward",
+      "quantity": 60
+    },
+    {
+      "id": 2,
+      "name": "Stormblood",
+      "quantity": 70
+    },
+    {
+      "id": 3,
+      "name": "Shadowbringer",
+      "quantity": 80
+    }
+  ]
+}
