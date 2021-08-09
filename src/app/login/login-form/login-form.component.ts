@@ -68,16 +68,23 @@ export class LoginFormComponent implements OnInit {
 
     if (this.c == '/login1') {
       var a = false
+      let stat 
       for (let user of this.users) {
         if (this.form.value.name === user.name && this.form.value.password === user.password) {
-          alert('Hello user')
-          this.transSuccess(this.form.value.name, '/dashboard', 'user')
           a = true
-          break;
+          stat = user.status
+          if (stat == "active") {
+            alert('Hello user')
+            this.transSuccess(this.form.value.name, '/dashboard', 'user')
+            break;
+          }
         }
       }
       if (a == false) {
         alert('login failed')
+      }
+      if (a == true && stat == "disabled") {
+        alert('login failed. Account is disabled')
       }
     }
   }
