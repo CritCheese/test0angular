@@ -1,1 +1,22 @@
-<p>products works!</p>
+<div class="container">
+  <h1>
+    Product Detail: #{{p.id}}
+  </h1>
+  <hr>
+  <div class="row">
+    <div class="col-5 text-center">
+      <img src="{{p.img}}" alt="" class="img-fluid text-center">
+    </div>
+    <div class="col-7">
+      <p class="mb-3"><b>Products works!</b></p>
+      <p class="mb-3"><b>Id:</b> {{p.id}}</p>
+      <p class="mb-3"><b>Name:</b> {{p.name}}</p>
+      <p class="mb-3"><b>Quantity:</b> {{p.quantity}}</p>
+      <p class="mb-3"><b>Date:</b> {{p.date | date: 'dd/MM/YYYY'}}</p>
+    </div>
+
+    <p></p>
+  </div>
+
+  <app-product-chart [q]="p.quantity"></app-product-chart>
+</div>

@@ -19,7 +19,6 @@ export class EditProductComponent implements OnInit, OnChanges {
       let change = changes[propName];
       this.curVal = change.currentValue
       this.curVal0 = JSON.parse(this.curVal)
-      console.log(this.curVal0);
     }
   }
 

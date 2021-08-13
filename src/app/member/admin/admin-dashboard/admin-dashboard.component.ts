@@ -31,10 +31,10 @@ export class AdminDashboardComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     this.addForm = new FormGroup({
-      name1: new FormControl(this.au.name, [Validators.required,]),
-      passw1: new FormControl(this.au.password, [Validators.required]),
-      class1: new FormControl(this.au.class, [Validators.required]),
-      status1: new FormControl(this.au.status, [Validators.required])
+      // name1: new FormControl(this.au.name, [Validators.required,]),
+      // passw1: new FormControl(this.au.password, [Validators.required]),
+      // class1: new FormControl(this.au.class, [Validators.required]),
+      // status1: new FormControl(this.au.status, [Validators.required])
     });
   }
 

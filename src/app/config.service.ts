@@ -5,9 +5,6 @@ import { User } from 'src/app/member/user/user';
 import { Admin } from 'src/app/member/admin/admin';
 import { Product } from 'src/app/products/product';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
@@ -18,6 +15,11 @@ export class ConfigService {
   configProductUrl= 'http://localhost:3000/products'
 
   constructor(private http: HttpClient) { }
+
+  getProductDetail(id: number): Observable<Product>{
+    const get = `${this.configProductUrl}/${id}`;
+    return this.http.get<Product>(get)
+  }
 
   getUser(): Observable<User[]> {
     return this.http.get<User[]>(this.configUserUrl)
@@ -33,6 +35,10 @@ export class ConfigService {
 
   addUser(user: User): Observable<User>{
     return this.http.post<User>(this.configUserUrl, user)
+  }
+
+  addProduct(product: Product):Observable<Product>{
+    return this.http.post<Product>(this.configProductUrl, product)
   }
 
   removeUser(id: number): Observable<unknown>{
@@ -55,8 +61,5 @@ export class ConfigService {
     return this.http.put<Product>(up, product)
   }
 
-  getProductDetail(id: number): Observable<Product>{
-    const get = `${this.configProductUrl}/${id}`;
-    return this.http.get<Product>(get)
-  }
+
 }

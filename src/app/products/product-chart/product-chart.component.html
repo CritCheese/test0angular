@@ -1,0 +1,21 @@
+<p>product-chart works!</p>
+
+<div style="display: block;" *ngIf="p!=null">
+  <canvas baseChart *ngIf="initd==true"
+    [datasets]="lineChartData"
+    [labels]="lineChartLabels"
+    [options]="lineChartOptions"
+    [colors]="lineChartColors"
+    [legend]="lineChartLegend"
+    [chartType]="lineChartType"
+    [plugins]="lineChartPlugins">
+  </canvas>
+  <button class="btn btn-secondary" (click)="initChart()">Initialize</button>
+  <button class="btn btn-secondary" (click)="add()">Random</button>
+  <div>
+    <label for="amount">Choose amount to add/subtract quantity: </label>
+    <input type="text" name="amount" id="amount" [(ngModel)]="amount">
+    <button class="btn btn-primary" (click)="addP()">Add</button>
+    <button class="btn btn-primary" (click)="subP()">Subtract</button>
+  </div>
+</div>

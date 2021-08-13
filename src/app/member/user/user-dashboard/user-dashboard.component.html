@@ -1,37 +1,42 @@
-<p>user-dashboard works!</p>
-<p>Hello {{name}}</p>
-<a href="/login1" (click)="onLogout()"><button class="btn btn-primary">Logout</button></a>
-<div>
-    <button  class="btn btn-primary" (click)='onAddProduct()'>Add Product</button>
+<header class="navbar navbar-expand navbar-light bg-light">
+  <p class="navbar-brand" style="margin-inline-start: 50px;">user-dashboard works!</p>
+  <p class="nav-item">Hello {{name}}</p>
+  <div class="d-flex nav-item">
+    <button class="btn btn-primary nav-item" (click)='addProduct = true'>Add Product</button>
+    <a href="/login1" (click)="onLogout()" class="nav-item"><button class="btn btn-primary">Logout</button></a>
   </div>
-<app-add-product *ngIf="addProduct == true">
 
-</app-add-product>
-  
-<table class="table">
+</header>
+<div class="container">
+  <app-add-product *ngIf="addProduct == true">
+
+  </app-add-product>
+
+  <table class="table">
     <thead>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Date Released</th>
-            <th>Options</th>
-        </tr>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Date Released</th>
+        <th>Options</th>
+      </tr>
     </thead>
     <tbody>
-        <tr *ngFor='let product of products'>
-            <td>{{product.id}}</td>
-            <td>{{product.name}}</td>
-            <td>{{product.quantity}}</td>
-            <td>{{product.date}}</td>
-            <td>
-                <button class="btn btn-outline-primary btn-sm" (click)="detail(product.id)">Detail</button>
-                <button class="btn btn-outline-primary btn-sm" (click)="edit(product)">Edit</button> 
-                <button class="btn btn-outline-primary btn-sm" (click)="deleteProduct(product.id)">Delete</button>
-            </td>
-        </tr>
+      <tr *ngFor='let product of products'>
+        <td>{{product.id}}</td>
+        <td>{{product.name}}</td>
+        <td>{{product.quantity}}</td>
+        <td>{{product.date | date: 'dd/MM/YYYY'}}</td>
+        <td>
+          <button class="btn btn-outline-primary btn-sm" (click)="detail(product.id)">Detail</button>
+          <button class="btn btn-outline-primary btn-sm" (click)="edit(product)">Edit</button>
+          <button class="btn btn-outline-primary btn-sm" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
     </tbody>
-</table>
+  </table>
 
-<app-edit-product [item]="sendEdit" *ngIf="editProduct !== undefined"></app-edit-product>
+  <app-edit-product [item]="sendEdit" *ngIf="editProduct !== undefined"></app-edit-product>
 
+</div>

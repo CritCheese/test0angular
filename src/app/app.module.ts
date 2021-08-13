@@ -14,6 +14,8 @@ import { ProductsComponent } from './products/products.component';
 import { EditUserComponent } from './member/admin/admin-dashboard/edit-user/edit-user.component';
 import { EditProductComponent } from './member/user/user-dashboard/edit-product/edit-product.component';
 import { AddProductComponent } from './member/user/user-dashboard/add-product/add-product.component';
+import { ProductChartComponent } from './products/product-chart/product-chart.component';
+import { ChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -27,13 +29,15 @@ import { AddProductComponent } from './member/user/user-dashboard/add-product/ad
     EditUserComponent,
     EditProductComponent,
     AddProductComponent,
+    ProductChartComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

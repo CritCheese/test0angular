@@ -14,14 +14,7 @@
       <input type="text" class="form-control form-control-sm" id="editUserClass" name="edit3"
         [(ngModel)]="curVal0.date">
     </div>
-    <!-- <div class="mb-1">
-        <label for="editUseStatus" class="form-label">Status: </label>
-        <select class="form-select form-select-sm" name="edit4" [(ngModel)]="curVal0.status">
-          <option value="active">Active</option>
-          <option value="disabled">Disabled</option>
-        </select>
-      </div> -->
-    <p class="alert alert-info">*Note: Changes only occur after clicking the "Submit" button</p>
+    <p class="alert alert-info"><b>*Note:</b> Changes only occur after clicking the "Submit" button</p>
     <div class="mb-1">
       <button class="btn btn-secondary" (click)="curVal = undefined">Cancel</button>
       <button type="submit" class="btn btn-secondary" (click)="updateProduct()">Submit</button>

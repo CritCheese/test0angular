@@ -2,6 +2,6 @@ export interface Product {
     id: number
     name: string
     quantity: number
-    date: string
+    date: Date
     img: string
   }
