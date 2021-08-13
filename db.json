@@ -8,39 +8,11 @@
   ],
   "users": [
     {
-      "id": 0,
-      "name": "ace",
-      "password": "ace",
-      "class": "warrior",
-      "status": "active"
-    },
-    {
-      "id": 1,
-      "name": "king",
-      "password": "king",
-      "class": "white mage",
-      "status": "active"
-    },
-    {
-      "id": 2,
-      "name": "queen",
-      "password": "queen",
-      "class": "machinist",
-      "status": "active"
-    },
-    {
       "id": 3,
       "name": "jack",
-      "password": "jack",
+      "password": "jack123",
       "class": "dragoon",
       "status": "disabled"
-    },
-    {
-      "id": 4,
-      "name": "nine",
-      "password": "nine",
-      "class": "dancer",
-      "status": "active"
     },
     {
       "id": 5,
@@ -51,16 +23,16 @@
     },
     {
       "id": 6,
-      "name": "eight",
-      "password": "eight",
-      "class": "dark knight",
-      "status": "disabled"
+      "name": "ace",
+      "password": "ace",
+      "class": "dancer",
+      "status": "active"
     },
     {
       "id": 7,
-      "name": "seven",
-      "password": "seven",
-      "class": "scholar",
+      "name": "king",
+      "password": "king",
+      "class": "warrior",
       "status": "active"
     }
   ],
@@ -68,22 +40,38 @@
     {
       "id": 0,
       "name": "A Realm Reborn",
-      "quantity": 50
+      "quantity": 50,
+      "date": "27-08-2013",
+      "img": "https://upload.wikimedia.org/wikipedia/en/a/a1/Final_Fantasy_XIV%2C_A_Realm_Reborn_box_cover.jpg"
+      
     },
     {
       "id": 1,
       "name": "Heavensward",
-      "quantity": 60
+      "quantity": 60,
+      "date": "23-06-2015",
+      "img":"https://upload.wikimedia.org/wikipedia/en/c/ce/Final_Fantasy_XIV_Heavensward_box_cover.jpg"
     },
     {
       "id": 2,
       "name": "Stormblood",
-      "quantity": 70
+      "quantity": 70,
+      "date": "20-06-2017",
+      "img":"https://upload.wikimedia.org/wikipedia/en/0/0e/Final_Fantasy_XIV_Stormblood_box_cover.jpgg"
     },
     {
       "id": 3,
       "name": "Shadowbringer",
-      "quantity": 80
+      "quantity": 80,
+      "date": "02-07-2019",
+      "img":"https://upload.wikimedia.org/wikipedia/en/9/9d/Final_Fantasy_XIV_Shadowbringers_box_cover.png"
+    },
+    {
+      "id": 4,
+      "name": "1.0",
+      "quantity": 80,
+      "date": "01-01-2022",
+      "img": "https://upload.wikimedia.org/wikipedia/en/thumb/4/45/Final_Fantasy_XIV_box_art.jpg/220px-Final_Fantasy_XIV_box_art.jpg"
     }
   ]
 }

@@ -1,0 +1,31 @@
+<div *ngIf="curVal !== undefined">
+  <form ngDefaultControl>
+    <div class="mb-1">
+      <label for="editUserName" class="form-label">Name: </label>
+      <input type="text" class="form-control form-control-sm" id="editUserName" [(ngModel)]="curVal0.name"
+        name="edit1">
+    </div>
+    <div class="mb-1">
+      <label for="editUserPassword" class="form-label">Password: </label>
+      <input type="text" class="form-control form-control-sm" id="editUserPassword" name="edit2"
+        [(ngModel)]="curVal0.password">
+    </div>
+    <div class="mb-1">
+      <label for="editUserClass" class="form-label">Class: </label>
+      <input type="text" class="form-control form-control-sm" id="editUserClass" name="edit3"
+        [(ngModel)]="curVal0.class">
+    </div>
+    <div class="mb-1">
+      <label for="editUseStatus" class="form-label">Status: </label>
+      <select class="form-select form-select-sm" name="edit4" [(ngModel)]="curVal0.status">
+        <option value="active">Active</option>
+        <option value="disabled">Disabled</option>
+      </select>
+    </div>
+    <p class="alert alert-info">*Note: Changes only occur after clicking the "Submit" button</p>
+    <div class="mb-1">
+      <button class="btn btn-secondary" (click)="curVal = undefined">Cancel</button>
+      <button type="submit" class="btn btn-secondary" (click)="updateUser()">Submit</button>
+    </div>
+  </form>
+</div>

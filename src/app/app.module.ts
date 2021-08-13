@@ -5,22 +5,28 @@ import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { Test01Component } from './test01/test01.component';
 import { UserLoginComponent } from './login/user-login/user-login.component';
 import { AdminLoginComponent } from './login/admin-login/admin-login.component';
 import { LoginFormComponent } from './login/login-form/login-form.component';
 import { AdminDashboardComponent } from './member/admin/admin-dashboard/admin-dashboard.component';
 import { UserDashboardComponent } from './member/user/user-dashboard/user-dashboard.component';
+import { ProductsComponent } from './products/products.component';
+import { EditUserComponent } from './member/admin/admin-dashboard/edit-user/edit-user.component';
+import { EditProductComponent } from './member/user/user-dashboard/edit-product/edit-product.component';
+import { AddProductComponent } from './member/user/user-dashboard/add-product/add-product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    Test01Component,
     UserLoginComponent,
     AdminLoginComponent,
     LoginFormComponent,
     AdminDashboardComponent,
-    UserDashboardComponent
+    UserDashboardComponent,
+    ProductsComponent,
+    EditUserComponent,
+    EditProductComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -28,7 +34,7 @@ import { UserDashboardComponent } from './member/user/user-dashboard/user-dashbo
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule
-  ],
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
